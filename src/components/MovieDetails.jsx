@@ -4,6 +4,7 @@ import api from "../../api/api"
 import { FaStar } from "react-icons/fa"
 import { useNavigate } from "react-router-dom"
 import Movies from "./Movies"
+import Skeleton from "./Skeleton"
 
 function MovieDetails() {
     const [Movie,setMovie] = useState([])
@@ -23,12 +24,20 @@ const fetchMovie = async() => {
     }
 }
 
+const Modal = () => {
+    document.querySelector('.ModalImg').src = `https://image.tmdb.org/t/p/original${Movie.backdrop_path}`
+    document.querySelector('.ModalText').innerHTML = ''
+}
+useEffect(() =>{
+    Modal()
+},[Movie])
+
 useEffect(() => {
     fetchMovie()
 },[])
   return (
     <div className="text-white p-2">
-       {isloading && <p>Loading...</p>}
+       {isloading && <p>loading...</p>}
        {!isloading &&
          <div className="flex p-10 flex-wrap justify-center items-center">
             <div className="w-[max-content] overflow-hidden sm:w-[350px]">

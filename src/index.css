@@ -4,4 +4,5 @@
 
 *{
   /* border: solid 1px; */
+  scroll-behavior: smooth;
 }
