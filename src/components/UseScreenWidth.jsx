@@ -10,7 +10,6 @@ function useScreenWidth() {
   useEffect(() => {
     window.addEventListener('resize', handleResize);
   }, []);
-
   return screenWidth;
 }
 
